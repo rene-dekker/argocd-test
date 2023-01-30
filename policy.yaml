@@ -1,0 +1,25 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: platform.allow-egress-svc-k8s-default
+  namespace: rene-test
+spec:
+  tier: platform
+  order: 110
+  selector: all()
+  serviceAccountSelector: ''
+  egress:
+    - action: Allow
+      protocol: TCP
+      source: {}
+      destination:
+        selector: >-
+          (provider == "kubernetes" && component == "apiserver" &&
+          endpoints.projectcalico.org/serviceName == "kubernetes")
+        namespaceSelector: projectcalico.org/name == "default"
+        ports:
+          - '443'
+          - '6443'
+          - '12388'
+  types:
+    - Egress
