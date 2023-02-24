@@ -18,8 +18,8 @@ spec:
           endpoints.projectcalico.org/serviceName == "kubernetes")
         namespaceSelector: projectcalico.org/name == "default"
         ports:
-          - '443'
-          - '6443'
-          - '12388'
+          - 443
+          - 6443
+          - 12388
   types:
     - Egress
