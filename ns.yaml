@@ -4,3 +4,8 @@ metadata:
   labels:
     kubernetes.io/metadata.name: rene-test
   name: rene-test
+spec:
+  finalizers:
+    - kubernetes
+status:
+  phase: Active
