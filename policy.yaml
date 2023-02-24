@@ -21,5 +21,6 @@ spec:
           - 443
           - 6443
           - 12388
+  serviceAccountSelector: ''
   types:
     - Egress
